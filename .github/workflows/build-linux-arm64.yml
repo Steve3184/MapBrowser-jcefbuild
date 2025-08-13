@@ -6,7 +6,7 @@ on:
       repo:
         description: 'Git repository to clone'
         required: true
-        default: 'https://bitbucket.org/chromiumembedded/java-cef.git'
+        default: 'https://github.com/Steve3184/MapBrowser-jcef'
       ref:
         description: 'Git commit id to checkout'
         required: true
@@ -31,8 +31,7 @@ jobs:
           ./compile_linux.sh arm64 Release ${{ github.event.inputs.repo }} ${{ github.event.inputs.ref }}
       -
         name: Export artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: linux-arm64.tar.gz
           path: out/binary_distrib.tar.gz
-
